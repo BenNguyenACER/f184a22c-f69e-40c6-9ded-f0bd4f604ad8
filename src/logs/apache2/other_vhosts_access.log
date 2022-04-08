@@ -1,1 +1,4 @@
 
+localhost:80 192.168.160.1 - - [08/Apr/2022:07:19:50 +0000] "GET / HTTP/1.1" 200 834 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:99.0) Gecko/20100101 Firefox/99.0"
+localhost:80 192.168.160.1 - - [08/Apr/2022:07:19:50 +0000] "GET /assets/css/bulma.min.css HTTP/1.1" 200 22080 "http://localhost/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:99.0) Gecko/20100101 Firefox/99.0"
+localhost:80 192.168.160.1 - - [08/Apr/2022:07:19:50 +0000] "GET /favicon.ico HTTP/1.1" 404 487 "http://localhost/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:99.0) Gecko/20100101 Firefox/99.0"
