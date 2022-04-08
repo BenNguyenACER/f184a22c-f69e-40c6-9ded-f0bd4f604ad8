@@ -1,0 +1,66 @@
+Question 1
+===========
+Describe how you would approach designing a resilient and fault-tolerant hosting infrastructure with AWS for an application currently running on an on-premises load-balanced cluster of application servers and a single MySQL database server. How would you configure networking within that infrastructure? What AWS services would you use and why?
+
+**** Answer :
+
+Pre-plan:
+**********
+
+1. Validate the on-premises application server version is compatible with the target AWS EC2 instance. 
+2. Validate the application server storage capacity and compatibility with the targeted AWS EC2 instance. Identify storage requirements (storage type and capacity).
+3. Choose the proper instance type based on capacity, storage features, and network features.
+4. Identify the network access security requirements for the source and target databases.
+
+
+Configure networking and infrastructure:
+*****************************************
+
+1. Create a Virtual Private Cloud (VPC) for the application server that is being migrated to the targeted EC2 instance.
+2. Create security groups that map to the application server that is being migrated to the targeted EC2 instance.
+3. Crate VPC in AWS Public & Private Subnets | Route Tables | Internet Gateway
+4. Create Auto scaling group for ec2 instances
+
+Single MySQL database server:
+*****************************
+
+I choose AWS Relation Database - (AWS RDS) because:
+1. Performance : Amazon RDS Provisioned IOPS Storage is an SSD-backed storage option  designed to deliver fast, predictable, and consistent I/O performance
+2. Scalability : The Amazon Aurora engine will automatically grow the size of your database volume as your database storage needs grow, up to a maximum of 64 TB or a maximum you define.
+3. Availability and durability : Almost virtually no down times and Automated backups
+
+Configure networking and infrastructure:
+*****************************************
+1. Create a MySQL database instance in AWS
+2. Create a replicate instance in AWS Database Migration Service : A replication instance is an Amazon EC2 instance that can host replication tasks within AWS DMS
+ Copies data from on-premises MySQL database into fully managed database on AWS.
+3. Create endpoints in AWS DMS : Before creating a replication task, you must register endpoints for your source and target databases.
+4. Create a replication task in AWS DMS : Copies data from on-premises MySQL database into newly created database in Amazon RDS.
+
+
+
+
+Question 2
+===========
+If you are given Windows 10 as your work machine (with 8-core CPUs and 16GB RAM), but you need to work with many Pythons and Linux Bash scripting along with many different Linux based docker containers.
+Assuming you cannot change the machine’s operating system and cannot re-partition any of the local HDDs; However, you have admin access to install software and enabling some Windows features.
+How would you setup your work environment on the machine?
+
+**** Answer :
+
+WSL 2 is a new version of the Windows Subsystem for Linux architecture that powers the Windows Subsystem for Linux to run ELF64 Linux binaries on Windows. Its primary goals are to increase file system performance, as well as adding full system call compatibility.
+
+Step 1 — Enabling Windows Services for the WSL
+Open PowerShell as Administrator (Start menu > PowerShell > right-click > Run as Administrator) and enter this command:
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+
+Step 2 - Enable Virtual Machine feature
+Open PowerShell as Administrator (Start menu > PowerShell > right-click > Run as Administrator) and enter this command:
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+
+Step 3 - Download the Linux kernel update package
+
+Step 4 - Set WSL 2 as your default version
+   wsl --set-default-version 2
+
+Step 5 - Install your Linux distribution of choice
