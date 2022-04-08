@@ -13,7 +13,7 @@ Run Instruction:
 #Please ensure docker is running - confirm docker is currently running
 #from command line: docker run hello-world
 
-git clone https://github.com/BenNguyenACER/40dbc88e-2e83-4c01-8a91-da01118cbd4e.git
+git clone https://github.com/BenNguyenACER/f184a22c-f69e-40c6-9ded-f0bd4f604ad8.git
 cd  40dbc88e-2e83-4c01-8a91-da01118cbd4e
 ./server.sh help ==> to check the usage.
 ./server.sh start ==> start up Lamp Stack
